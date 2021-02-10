@@ -23,7 +23,7 @@ public class LoadEvents {
             //Данный ужас берет все посты по тегу стажировка, после чего фильтрует
             // только опубликованные за последние 2 месяца
             List<WallpostFull> searchPost = vkCore.getVk().wall().search(vkCore.getUserActor())
-                    .ownerId(Integer.valueOf(GroupData.GROUP_ID.getCode()))
+                    .ownerId(Integer.valueOf(GroupData.GROUP_ID.getValue()))
                     .query(tag)
                     .count(20)
                     .execute()
@@ -34,7 +34,7 @@ public class LoadEvents {
 
 
             for (Wallpost post:searchPost) {
-                attachments.add("wall"+GroupData.GROUP_ID.getCode()+"_"+post.getId());
+                attachments.add("wall"+GroupData.GROUP_ID.getValue()+"_"+post.getId());
             }
 
             return attachments;

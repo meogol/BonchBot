@@ -44,8 +44,8 @@ public class Members extends Command implements ServiceCommand{
     private String getGroupContacts() {
         try {
             String contacts = vkCore.getVk().pages().get(vkCore.getUserActor())
-                    .ownerId(Integer.valueOf(GroupData.GROUP_ID.getCode()))
-                    .pageId(Integer.valueOf(GroupData.MEMBERS_POST_ID.getCode()))
+                    .ownerId(Integer.valueOf(GroupData.GROUP_ID.getValue()))
+                    .pageId(Integer.valueOf(GroupData.MEMBERS_POST_ID.getValue()))
                     .needSource(true)
                     .execute()
                     .getSource();

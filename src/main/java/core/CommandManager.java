@@ -22,6 +22,7 @@ public class CommandManager {
         commands.add(new Advertising("Реклама в сообществе"));
         commands.add(new CommitteeEvents("Мероприятия комитета"));
         commands.add(new ThirdPartyEvents("Сторонние мероприятия"));
+        commands.add(new FAQ("FAQ"));
     }
 
     public static HashSet<Command> getCommands(){

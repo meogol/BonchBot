@@ -12,7 +12,6 @@ public class Questions extends Command implements ServiceCommand{
 
     @Override
     public void exec(Message message) {
-        //new VKManager().sendMessage("???????????", message.getPeerId());
         new VKManager().sendKeyboard(QuestionsKeyboard.getKeyboard(), "Какой у вас вопрос?", message.getPeerId());
     }
 
