@@ -12,7 +12,10 @@ public class FAQ extends Command implements ServiceCommand{
 
     @Override
     public void exec(Message message) {
-        
+        String msg = "Как написать статью?\n" +
+                "https://vk.com/@yana_tih-faq-ksnr";
+
+        new VKManager().sendMessage(msg, message.getPeerId());
     }
 
     @Override
