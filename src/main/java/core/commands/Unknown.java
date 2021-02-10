@@ -1,9 +1,8 @@
 package core.commands;
 
-import com.vk.api.sdk.objects.messages.Keyboard;
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.keyboards.MainKeyboard;
+import core.modules.keyboards.MainKeyboard;
 import vk.VKManager;
 
 

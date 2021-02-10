@@ -2,7 +2,7 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.keyboards.QuestionsKeyboard;
+import core.modules.keyboards.QuestionsKeyboard;
 import vk.VKManager;
 
 public class Questions extends Command implements ServiceCommand{

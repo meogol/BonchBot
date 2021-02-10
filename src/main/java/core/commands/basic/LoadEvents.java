@@ -4,7 +4,7 @@ import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.wall.Wallpost;
 import com.vk.api.sdk.objects.wall.WallpostFull;
-import core.modules.GroupData;
+import core.modules.data.GroupData;
 
 import java.util.ArrayList;
 import java.util.Date;

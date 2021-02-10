@@ -3,9 +3,12 @@ package vk;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.messages.Keyboard;
+import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.objects.users.responses.GetResponse;
+import com.vk.api.sdk.objects.wall.CarouselBase;
 import com.vk.api.sdk.queries.messages.MessagesSendQuery;
+import core.modules.carousels.SECCarousel;
 
 import java.util.List;
 import java.util.Random;
@@ -52,6 +55,21 @@ public class VKManager {
                 vkCore.getVk().messages().send(vkCore.getActor()).peerId(peerId).randomId(random.nextInt(10000))
                         .attachment(attachment).execute();
             }
+
+        } catch (ApiException | ClientException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendCarousel(List<String> attachments, int peerId){
+
+        try {
+            SECCarousel c = new SECCarousel();
+            System.out.println(c.toString());
+
+            vkCore.getVk().messages().send(vkCore.getActor()).peerId(peerId).randomId(random.nextInt(10000))
+                    .message("msg").template(c.toString()).execute();
+
 
         } catch (ApiException | ClientException e) {
             e.printStackTrace();

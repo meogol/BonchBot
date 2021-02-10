@@ -2,7 +2,7 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.modules.GroupData;
+import core.modules.data.GroupData;
 import vk.VKManager;
 
 public class Error extends Command implements ServiceCommand{

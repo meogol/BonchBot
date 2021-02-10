@@ -4,6 +4,9 @@ import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
 import vk.VKManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SECs extends Command implements ServiceCommand{
 
     public SECs(String name) {
@@ -12,7 +15,8 @@ public class SECs extends Command implements ServiceCommand{
 
     @Override
     public void exec(Message message) {
-        new VKManager().sendMessage("НОЦы скролменю", message.getPeerId());
+        List<String> s = new ArrayList<>();
+        new VKManager().sendCarousel(s, message.getPeerId());
 
     }
 

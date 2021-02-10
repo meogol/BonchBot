@@ -1,24 +1,11 @@
 package core.commands;
 
-import com.vk.api.sdk.exceptions.ApiException;
-import com.vk.api.sdk.exceptions.ClientException;
-import com.vk.api.sdk.objects.groups.ContactsItem;
 import com.vk.api.sdk.objects.messages.Message;
-import com.vk.api.sdk.objects.wall.Wallpost;
-import com.vk.api.sdk.objects.wall.WallpostFull;
-import com.vk.api.sdk.objects.wall.responses.SearchResponse;
 import core.Command;
 import core.commands.basic.LoadEvents;
-import core.modules.GroupData;
 import vk.VKManager;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static vk.VKServer.vkCore;
 
 public class Internships extends Command implements ServiceCommand {
     public Internships(String name) {

@@ -2,7 +2,7 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.keyboards.EventsKeyboard;
+import core.modules.keyboards.EventsKeyboard;
 import vk.VKManager;
 
 public class Events extends Command implements ServiceCommand{

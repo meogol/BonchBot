@@ -2,13 +2,10 @@ package core.commands;
 
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
-import com.vk.api.sdk.objects.groups.ContactsItem;
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.modules.GroupData;
+import core.modules.data.GroupData;
 import vk.VKManager;
-
-import java.util.List;
 
 import static vk.VKServer.vkCore;
 

@@ -2,8 +2,7 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.keyboards.MainKeyboard;
-import core.keyboards.QuestionsKeyboard;
+import core.modules.keyboards.MainKeyboard;
 import vk.VKManager;
 
 public class Back extends Command implements ServiceCommand{
