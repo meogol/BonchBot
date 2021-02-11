@@ -2,10 +2,10 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
+import core.modules.carousels.SECCarousel;
+import core.modules.keyboards.classicKeyboard.SECKeyboard;
 import vk.VKManager;
-
-import java.util.ArrayList;
-import java.util.List;
+import vk.callback.data.ClientInfo;
 
 public class SECs extends Command implements ServiceCommand{
 
@@ -14,9 +14,16 @@ public class SECs extends Command implements ServiceCommand{
     }
 
     @Override
-    public void exec(Message message) {
-        List<String> s = new ArrayList<>();
-        new VKManager().sendCarousel(s, message.getPeerId());
+    public void exec(Message message, ClientInfo clientInfo) {
+
+        if(clientInfo.getCarousel())
+                new VKManager().sendCarousel("О каком из научно-образовательных центров вы хотите узнать?",
+                        new SECCarousel(), message.getPeerId());
+        else if(clientInfo.getKeyboard()){
+            new VKManager().sendKeyboard(SECKeyboard.getKeyboard(),"О каком из научно-образовательных центров вы" +
+                    " хотите узнать?", message.getPeerId());
+        }else
+            new VKManager().sendMessage("ну капец", message.getPeerId());
 
     }
 

@@ -11,11 +11,6 @@
         <dependency>
             <groupId>com.vk.api</groupId>
             <artifactId>sdk</artifactId>
-            <version>1.0.7</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vk.api</groupId>
-            <artifactId>sdk</artifactId>
             <version>1.0.8</version>
         </dependency>
     </dependencies>

@@ -6,6 +6,7 @@ import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
 import core.modules.data.GroupData;
 import vk.VKManager;
+import vk.callback.data.ClientInfo;
 
 import static vk.VKServer.vkCore;
 
@@ -17,7 +18,7 @@ public class Members extends Command implements ServiceCommand{
     }
 
     @Override
-    public void exec(Message message) {
+    public void exec(Message message, ClientInfo clientInfo) {
 
         String contacts = getGroupContacts();
 

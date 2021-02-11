@@ -2,6 +2,7 @@ package core;
 
 
 import com.vk.api.sdk.objects.messages.Message;
+import vk.callback.data.ClientInfo;
 
 /**
  * Abstract class for all executable classes-commands
@@ -21,7 +22,7 @@ public abstract class Command {
      * Метод, который будет вызываться для исполнения команды
      * @param message сообщение пользователя
      */
-    public abstract void exec(Message message);
+    public abstract void exec(Message message, ClientInfo clientInfo);
 
     /**
      * Возвращает строку в формате:

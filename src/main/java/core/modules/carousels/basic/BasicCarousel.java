@@ -1,7 +1,6 @@
 package core.modules.carousels.basic;
 
 import com.google.gson.Gson;
-import core.modules.carousels.SECElement;
 
 import java.util.ArrayList;
 

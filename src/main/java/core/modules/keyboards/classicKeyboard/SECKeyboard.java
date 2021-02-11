@@ -1,11 +1,11 @@
-package core.modules.keyboards;
+package core.modules.keyboards.classicKeyboard;
 
 import com.vk.api.sdk.objects.messages.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsKeyboard {
+public class SECKeyboard {
 
     private static Keyboard keyboard = new Keyboard();
     private static List<List<KeyboardButton>> allKey = new ArrayList<>();
@@ -18,22 +18,24 @@ public class QuestionsKeyboard {
     }
 
     static{
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("FAQ")
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ИТНС")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Нашли ошибку?")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Реклама в сообществе")
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ТИОС")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
 
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ПОС")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ЛП")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+
+        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("БИС")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-
         allKey.add(line1);
         allKey.add(line2);
         allKey.add(line3);
         keyboard.setButtons(allKey);
 
     }
-
 }

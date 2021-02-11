@@ -3,6 +3,7 @@ package core;
 
 import core.commands.*;
 import core.commands.Error;
+import core.commands.SecItems.*;
 
 import java.util.HashSet;
 
@@ -23,6 +24,11 @@ public class CommandManager {
         commands.add(new CommitteeEvents("Мероприятия комитета"));
         commands.add(new ThirdPartyEvents("Сторонние мероприятия"));
         commands.add(new FAQ("FAQ"));
+        commands.add(new ITNS("ИТНС"));
+        commands.add(new TIOS("ТИОС"));
+        commands.add(new POS("ПОС"));
+        commands.add(new LP("ЛП"));
+        commands.add(new BIS("БИС"));
     }
 
     public static HashSet<Command> getCommands(){

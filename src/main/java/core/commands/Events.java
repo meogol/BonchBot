@@ -2,8 +2,9 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.Command;
-import core.modules.keyboards.EventsKeyboard;
+import core.modules.keyboards.classicKeyboard.EventsKeyboard;
 import vk.VKManager;
+import vk.callback.data.ClientInfo;
 
 public class Events extends Command implements ServiceCommand{
 
@@ -12,7 +13,7 @@ public class Events extends Command implements ServiceCommand{
     }
 
     @Override
-    public void exec(Message message) {
+    public void exec(Message message, ClientInfo clientInfo) {
         new VKManager().sendKeyboard(EventsKeyboard.getKeyboard(), "Выбирите желаемые меро", message.getPeerId());
     }
 

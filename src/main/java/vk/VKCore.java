@@ -3,7 +3,6 @@ package vk;
 import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.GroupActor;
-import com.vk.api.sdk.client.actors.ServiceActor;
 import com.vk.api.sdk.client.actors.UserActor;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
@@ -44,7 +43,13 @@ public class VKCore {
             user_access_token = prop.getProperty("userAccessToken");
             actor = new GroupActor(groupId, access_token);
             userActor = new UserActor(userId, user_access_token);
+
+//            if (!vk.groups().getLongPollSettings(actor, actor.getGroupId()).execute().getIsEnabled()) {
+//                vk.groups().setLongPollSettings(actor, actor.getGroupId()).enabled(true).wallPostNew(true).execute();
+//            }
+
             ts = vk.messages().getLongPollServer(actor).execute().getTs();
+
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Ошибка при загрузке файла конфигурации");
@@ -61,6 +66,7 @@ public class VKCore {
     public UserActor getUserActor() {
         return userActor;
     }
+
 
     public Message getMessage() throws ClientException, ApiException {
 
@@ -87,11 +93,6 @@ public class VKCore {
         }
         if (!messages.isEmpty() && !messages.get(0).isOut()) {
 
-                /*
-                messageId - максимально полученный ID, нужен, чтобы не было ошибки 10 internal server error,
-                который является ограничением в API VK. В случае, если ts слишком старый (больше суток),
-                а max_msg_id не передан, метод может вернуть ошибку 10 (Internal server error).
-                 */
             int messageId = messages.get(0).getId();
             if (messageId > maxMsgId){
                 maxMsgId = messageId;
@@ -101,5 +102,6 @@ public class VKCore {
         }
         return null;
     }
+
 
 }

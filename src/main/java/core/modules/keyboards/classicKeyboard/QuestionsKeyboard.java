@@ -1,12 +1,12 @@
-package core.modules.keyboards;
+package core.modules.keyboards.classicKeyboard;
 
 import com.vk.api.sdk.objects.messages.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class QuestionsKeyboard {
 
-public class MainKeyboard {
     private static Keyboard keyboard = new Keyboard();
     private static List<List<KeyboardButton>> allKey = new ArrayList<>();
     private static List<KeyboardButton> line1 = new ArrayList<>();
@@ -18,17 +18,15 @@ public class MainKeyboard {
     }
 
     static{
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Мероприятия")
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("FAQ")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Стажировки")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Участники")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("НОЦы")
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Нашли ошибку?")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
 
-        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Вопросы")
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Реклама в сообществе")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+
+        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
 
         allKey.add(line1);
@@ -37,4 +35,5 @@ public class MainKeyboard {
         keyboard.setButtons(allKey);
 
     }
+
 }

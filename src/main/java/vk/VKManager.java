@@ -9,6 +9,7 @@ import com.vk.api.sdk.objects.users.responses.GetResponse;
 import com.vk.api.sdk.objects.wall.CarouselBase;
 import com.vk.api.sdk.queries.messages.MessagesSendQuery;
 import core.modules.carousels.SECCarousel;
+import core.modules.carousels.basic.BasicCarousel;
 
 import java.util.List;
 import java.util.Random;
@@ -61,14 +62,12 @@ public class VKManager {
         }
     }
 
-    public void sendCarousel(List<String> attachments, int peerId){
+
+    public void sendCarousel(String msg, BasicCarousel carousel, int peerId){
 
         try {
-            SECCarousel c = new SECCarousel();
-            System.out.println(c.toString());
-
             vkCore.getVk().messages().send(vkCore.getActor()).peerId(peerId).randomId(random.nextInt(10000))
-                    .message("msg").template(c.toString()).execute();
+                    .message(msg).template(carousel.toString()).execute();
 
 
         } catch (ApiException | ClientException e) {
