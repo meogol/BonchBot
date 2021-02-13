@@ -16,11 +16,23 @@ public class VKServer {
         }
     }
 
-    public static void main(String[] args) throws NullPointerException, ApiException, ClientException {
+    public static void main(String[] args) throws NullPointerException, ApiException, ClientException, InterruptedException {
         System.out.println("Running server...");
 
-        CallbackApiLongPollHandler handler = new CallbackApiLongPollHandler(vkCore.getVk(), vkCore.getActor());
-        handler.run();
+        while (true) {
+            try {
+                CallbackApiLongPollHandler handler = new CallbackApiLongPollHandler(vkCore.getVk(), vkCore.getActor());
+                handler.run();
+
+            } catch (ClientException e) {
+                System.out.println("Возникли проблемы");
+                final int RECONNECT_TIME = 10000;
+                System.out.println("Повторное соединение через " + RECONNECT_TIME / 1000 + " секунд");
+                Thread.sleep(RECONNECT_TIME);
+
+            }
+        }
+
 
 
 
@@ -41,6 +53,6 @@ public class VKServer {
 //
 //            }
 //        }
-    }
+        }
 
-}
+    }

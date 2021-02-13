@@ -23,8 +23,12 @@ public class SECs extends Command implements ServiceCommand{
             new VKManager().sendKeyboard(SECKeyboard.getKeyboard(),"О каком из научно-образовательных центров вы" +
                     " хотите узнать?", message.getPeerId());
         }else
-            new VKManager().sendMessage("ну капец", message.getPeerId());
-
+            new VKManager().sendMessage("Напишите название интересующего вас научно-образовательного центра\n" +
+                    "ИТНС\n" +
+                    "ТИОС\n" +
+                    "ПОС\n" +
+                    "ЛП\n" +
+                    "БИС\n", message.getPeerId());
     }
 
     @Override

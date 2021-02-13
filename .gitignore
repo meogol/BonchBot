@@ -4,3 +4,5 @@ target/
 src/main/resources/
 
 .idea/
+
+output.log

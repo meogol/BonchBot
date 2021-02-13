@@ -22,7 +22,7 @@ public class Members extends Command implements ServiceCommand{
 
         String contacts = getGroupContacts();
 
-        if(contacts == "")
+        if(contacts.equals(""))
             contacts = "Ошибка получения контактов";
 
         new VKManager().sendMessage(contacts, message.getPeerId());
