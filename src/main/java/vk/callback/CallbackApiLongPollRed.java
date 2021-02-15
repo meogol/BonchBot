@@ -75,6 +75,7 @@ public class CallbackApiLongPollRed extends CallbackApiLongPoll {
             if(json.toString().contains("message_new") ) {
                 CallbackMessage message = gson.fromJson(jsonObject,
                         new TypeToken<CallbackMessage<Message>>() {}.getType());
+
                 messageNew(message.getGroupId(), clientInfo, (Message)message.getObject());
             }
 

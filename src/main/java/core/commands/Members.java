@@ -37,30 +37,31 @@ public class Members extends Command implements ServiceCommand{
      * Метод получает участников комитета из меню группы,
      * удаляет все лишнее и преобразует вывод
      * Данные на странице должны получаться в формате <ссылка><Доожность+имя>
-     * @return
+     * @return список контактов с линками людей
      */
     private String getGroupContacts() {
         try {
-            String contacts = vkCore.getVk().pages().get(vkCore.getUserActor())
+            StringBuilder contacts = new StringBuilder(vkCore.getVk().pages().get(vkCore.getUserActor())
                     .ownerId(Integer.valueOf(GroupData.GROUP_ID.getValue()))
                     .pageId(Integer.valueOf(GroupData.MEMBERS_POST_ID.getValue()))
                     .needSource(true)
                     .execute()
-                    .getSource();
+                    .getSource());
 
-            contacts=contacts.split("<left>")[1].replaceAll("</left>","")
-                    .replaceAll("\\[\\[","")
-                    .replaceAll("]]","");
+            contacts = new StringBuilder(contacts.toString().split("<left>")[1].replaceAll("</left>", "")
+                    .replaceAll("\\[\\[", "")
+                    .replaceAll("]]", ""));
 
-            String[] splitContacts = contacts.split("\n");
-            contacts = "";
+            String[] splitContacts = contacts.toString().split("\n");
+            contacts = new StringBuilder();
 
             for (String urlAndName: splitContacts) {
                 String[] splitUrlAndName = urlAndName.split("\\|");
-                contacts += splitUrlAndName[1]+" | "+ splitUrlAndName[0]+"\n";
+                String link = splitUrlAndName[0].split("/")[3];
+                contacts.append("* @").append(link).append("(").append(splitUrlAndName[1]).append(")").append("\n\n");
             }
 
-            return  contacts;
+            return contacts.toString();
         }
         catch (ApiException | ClientException e) {
             e.printStackTrace();

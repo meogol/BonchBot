@@ -18,16 +18,16 @@ public class QuestionsKeyboard {
     }
 
     static{
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("FAQ")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Нашли ошибку?")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDD2EFAQ\uD83D\uDD2E")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDC94Нашли ошибку?\uD83D\uDC94")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Реклама в сообществе")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDCC8Реклама в сообществе\uD83D\uDCC8")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
 
         allKey.add(line1);
         allKey.add(line2);

@@ -34,8 +34,6 @@ public class VKServer {
         }
 
 
-
-
 //        while (true) {
 //            Thread.sleep(300);
 //
@@ -53,6 +51,8 @@ public class VKServer {
 //
 //            }
 //        }
+
+
         }
 
     }

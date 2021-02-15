@@ -18,14 +18,14 @@ public class EventsKeyboard {
     }
 
     static{
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Мероприятия комитета")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDC40Мероприятия комитета\uD83D\uDC40")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
 
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Сторонние мероприятия")
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("⭐Сторонние мероприятия⭐")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
 
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
 
         allKey.add(line1);
         allKey.add(line2);

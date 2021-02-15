@@ -3,8 +3,8 @@ package core.modules.data;
 public enum GroupData {
     GROUP_ID("-87630042"),
     MEMBERS_POST_ID("54493128"),
-    DEVELOPER_URL("https://vk.com/meogol"),
-    SMM_URL("https://vk.com/dsshvts");
+    DEVELOPER_URL("@meogol(Леха Слепнев)"),
+    SMM_URL("@dsshvts(Данила Шевцов)");
 
     private String value;
 

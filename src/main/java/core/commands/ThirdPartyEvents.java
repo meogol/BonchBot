@@ -15,7 +15,7 @@ public class ThirdPartyEvents extends Command implements ServiceCommand{
 
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
-        List<String> attachments = LoadEvents.getPost("#приймиучастие");
+        List<String> attachments = LoadEvents.getPost("#примиучастие");
 
         if(attachments.size() < 1)
             new VKManager().sendMessage("За последние 2 месяца нет сторонних мероприятий =(", message.getPeerId());

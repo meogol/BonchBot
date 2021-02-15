@@ -20,7 +20,7 @@ public class LoadEvents {
 
         try {
             long lastDate = new Date( System.currentTimeMillis() - LAST_TWO_MONTH).getTime();
-            //Данный ужас берет все посты по тегу стажировка, после чего фильтрует
+            //Данный ужас берет все посты по тегу, после чего фильтрует
             // только опубликованные за последние 2 месяца
             List<WallpostFull> searchPost = vkCore.getVk().wall().search(vkCore.getUserActor())
                     .ownerId(Integer.valueOf(GroupData.GROUP_ID.getValue()))

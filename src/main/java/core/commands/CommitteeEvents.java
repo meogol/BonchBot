@@ -15,7 +15,7 @@ public class CommitteeEvents extends Command implements ServiceCommand{
 
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
-        List<String> attachments = LoadEvents.getPost("#нашемеро");
+        List<String> attachments = LoadEvents.getPost("#scienceдвиж");
         if(attachments.size() < 1)
             new VKManager().sendMessage("За последние 2 месяца нет наших мероприятий =(", message.getPeerId());
         else

@@ -19,19 +19,19 @@ public class SECKeyboard {
 
     static{
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ИТНС")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ТИОС")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
 
         line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ПОС")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
         line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ЛП")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
 
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("БИС")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
         allKey.add(line1);
         allKey.add(line2);
         allKey.add(line3);

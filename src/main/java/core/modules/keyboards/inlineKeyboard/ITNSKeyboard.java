@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ITNSKeyboard {
-    private static Keyboard keyboard = new Keyboard();
-    private static List<List<KeyboardButton>> allKey = new ArrayList<>();
-    private static List<KeyboardButton> line1 = new ArrayList<>();;
+    private final static Keyboard keyboard = new Keyboard();
+    private final static List<List<KeyboardButton>> allKey = new ArrayList<>();
+    private final static List<KeyboardButton> line1 = new ArrayList<>();;
 
     public static Keyboard getKeyboard() {
         return keyboard;

@@ -12,6 +12,7 @@ import com.vk.api.sdk.queries.messages.MessagesGetLongPollHistoryQuery;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
@@ -36,7 +37,8 @@ public class VKCore {
         int userId;
         String user_access_token;
         try {
-            prop.load(new FileInputStream("src/main/resources/vkconfig.properties"));
+            InputStream inputStream = VKCore.class.getClassLoader().getResourceAsStream("vkconfig.properties");
+            prop.load(inputStream);
             groupId = Integer.valueOf(prop.getProperty("groupId"));
             access_token = prop.getProperty("accessToken");
             userId = Integer.valueOf(prop.getProperty("userId"));
@@ -44,9 +46,9 @@ public class VKCore {
             actor = new GroupActor(groupId, access_token);
             userActor = new UserActor(userId, user_access_token);
 
-//            if (!vk.groups().getLongPollSettings(actor, actor.getGroupId()).execute().getIsEnabled()) {
-//                vk.groups().setLongPollSettings(actor, actor.getGroupId()).enabled(true).wallPostNew(true).execute();
-//            }
+            if (!vk.groups().getLongPollSettings(actor, actor.getGroupId()).execute().getIsEnabled()) {
+                vk.groups().setLongPollSettings(actor, actor.getGroupId()).enabled(true).wallPostNew(true).execute();
+            }
 
             ts = vk.messages().getLongPollServer(actor).execute().getTs();
 

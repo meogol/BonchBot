@@ -1,6 +1,7 @@
 package core;
 
 import com.vk.api.sdk.objects.messages.Message;
+import core.commands.Back;
 import core.commands.Unknown;
 
 import java.util.Collection;
@@ -21,7 +22,7 @@ public class CommandDeterminant {
                 }
         }
 
-        return new Unknown("unknown");
+        return new Back("unknown");
     }
 
 }

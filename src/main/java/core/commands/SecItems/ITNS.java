@@ -26,7 +26,6 @@ public class ITNS extends Command implements ServiceCommand {
             new VKManager().sendMessage("Научно-образовательный центр \"Инфокоммуникационных технологий и нейрокогнитивных архитектур\" \n" +
                     "описание\n" +
                     "Подробнее:https://www.sut.ru/university/structure/podrazdeleniya-prorektora-po-nauchnoy-rabote/nauchno-issledovatelskiy-institut-tehnologiy-svyazi/nauchno-obrazovatelniy-centr-infokommunikacionnih-tehnologiy-i-neyrokognitivnih-arhitektur", message.getPeerId());
-
     }
 
     @Override

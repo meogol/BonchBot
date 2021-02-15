@@ -18,18 +18,18 @@ public class MainKeyboard {
     }
 
     static{
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Мероприятия")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Стажировки")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83C\uDF89Мероприятия")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDCB0Стажировки\uD83D\uDCB0")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
 
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Участники")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("НОЦы")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDE0EУчастники\uD83D\uDE0E")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
+        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("НОЦы\uD83D\uDD2C")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
 
-        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Вопросы")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("❓Вопросы❓")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
         allKey.add(line1);
         allKey.add(line2);

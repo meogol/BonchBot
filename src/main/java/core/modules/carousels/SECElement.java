@@ -13,6 +13,7 @@ public class SECElement extends BasicElements {
 
         this.title=title;
         this.description = description;
-        setButton(buttonMsg, buttonLink );
+
+        setButton(buttonMsg, buttonLink);
     }
 }
