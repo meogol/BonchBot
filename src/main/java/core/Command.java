@@ -8,7 +8,6 @@ import vk.callback.data.ClientInfo;
  * Abstract class for all executable classes-commands
  * Field {@link #name} identification command,he is called by this name
  *
- * @version 1.1
  */
 public abstract class Command {
 
