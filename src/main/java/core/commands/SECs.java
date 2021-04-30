@@ -29,6 +29,8 @@ public class SECs extends Command implements ServiceCommand{
                     "ПОС\n" +
                     "ЛП\n" +
                     "БИС\n", message.getPeerId());
+        System.out.println("fsgsdffds");
+        System.out.println("fsgsdffds");
     }
 
     @Override
