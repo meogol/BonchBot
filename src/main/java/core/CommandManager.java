@@ -37,6 +37,8 @@ public class CommandManager {
         commands.add(new FAQ("6"));
         commands.add(new Error("7"));
         commands.add(new Advertising("8"));
+        commands.add(new Settings("настройки"));
+        commands.add(new Subscribe("управление подпиской"));
     }
 
     public static HashSet<Command> getCommands(){
