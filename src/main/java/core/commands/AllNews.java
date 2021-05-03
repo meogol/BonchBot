@@ -13,6 +13,7 @@ public class AllNews extends Command implements ServiceCommand{
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
         new VKManager().sendMessage("Спасибо за подписку!\nВсе новости будут приходить в 19:00!", message.getPeerId());
+
     }
 
     @Override
