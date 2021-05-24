@@ -2,25 +2,22 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.modules.comands.Command;
-import core.modules.keyboards.classicKeyboard.EventsKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
 
-public class Events extends Command implements ServiceCommand{
+public class OurEvents extends Command implements ServiceCommand {
 
-    public Events(String name) {
+    public OurEvents(String name) {
         super(name);
     }
 
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
-        new VKManager().sendKeyboard(EventsKeyboard.getKeyboard(), "Выбирите желаемые меро", message.getPeerId());
+        new VKManager().sendMessage("Спасибо за подписку!\nВсе новости будут приходить в 19:00!", message.getPeerId());
     }
 
     @Override
     public void service() {
 
     }
-
-
 }

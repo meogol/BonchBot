@@ -2,21 +2,18 @@ package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.modules.comands.Command;
+import core.modules.keyboards.classicKeyboard.SettingsKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
 
-public class FAQ extends Command implements ServiceCommand{
-
-    public FAQ(String name) {
+public class Settings extends Command implements ServiceCommand{
+    public Settings(String name) {
         super(name);
     }
 
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
-        String msg = "Как написать статью?\n" +
-                "https://vk.com/@yana_tih-faq-ksnr";
-
-        new VKManager().sendMessage(msg, message.getPeerId());
+        new VKManager().sendKeyboard(SettingsKeyboard.getKeyboard(), "Что вы хотите поменять?", message.getPeerId());
     }
 
     @Override

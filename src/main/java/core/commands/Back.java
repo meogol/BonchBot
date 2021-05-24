@@ -1,7 +1,7 @@
 package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
-import core.Command;
+import core.modules.comands.Command;
 import core.modules.keyboards.classicKeyboard.MainKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
@@ -14,6 +14,7 @@ public class Back extends Command implements ServiceCommand{
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
 
+        var a = message.getPeerId();
         if(clientInfo.getKeyboard())
             new VKManager().sendKeyboard(MainKeyboard.getKeyboard(), "Что вы хотите узнать?", message.getPeerId());
         else

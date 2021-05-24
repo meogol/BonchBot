@@ -30,6 +30,8 @@ public class MainKeyboard {
 
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("❓Вопросы❓")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
+        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Настройки")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
         allKey.add(line1);
         allKey.add(line2);

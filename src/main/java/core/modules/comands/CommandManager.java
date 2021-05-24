@@ -1,4 +1,4 @@
-package core;
+package core.modules.comands;
 
 
 import core.commands.*;
@@ -37,6 +37,12 @@ public class CommandManager {
         commands.add(new FAQ("6"));
         commands.add(new Error("7"));
         commands.add(new Advertising("8"));
+        commands.add(new Settings("настройки"));
+        commands.add(new Subscribe("управление подпиской"));
+        commands.add(new AllNews("все новости!"));
+        commands.add(new OurEvents("наши меро!"));
+        commands.add(new OtherEvents("сторонние меро!"));
+        commands.add(new Unsubscribe("отписаться :c"));
     }
 
     public static HashSet<Command> getCommands(){

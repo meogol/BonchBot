@@ -2,6 +2,8 @@ package vk;
 
 
 import com.vk.api.sdk.objects.messages.Message;
+import core.modules.comands.Commander;
+import core.modules.mailing.Mailing;
 import vk.callback.data.ClientInfo;
 
 public class Messenger implements Runnable{
@@ -17,7 +19,8 @@ public class Messenger implements Runnable{
 
     @Override
     public void run() {
-        core.Commander.execute(message, clientInfo);
+
+        Commander.execute(message, clientInfo);
     }
 
 }

@@ -1,4 +1,4 @@
-package core;
+package core.modules.comands;
 
 import com.vk.api.sdk.objects.messages.Message;
 import vk.callback.data.ClientInfo;
