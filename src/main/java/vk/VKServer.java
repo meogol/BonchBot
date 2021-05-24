@@ -2,6 +2,7 @@ package vk;
 
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
+import core.modules.mailing.Mailing;
 import vk.callback.CallbackApiLongPollHandler;
 
 public class VKServer {
@@ -21,8 +22,17 @@ public class VKServer {
 
         while (true) {
             try {
+                Runnable mailing =() ->{
+                    Mailing.execute();
+
+                };
+                Thread threadLoadingForm = new Thread(mailing);
+                threadLoadingForm.start();
+
                 CallbackApiLongPollHandler handler = new CallbackApiLongPollHandler(vkCore.getVk(), vkCore.getActor());
                 handler.run();
+
+
 
             } catch (ClientException e) {
                 System.out.println("Возникли проблемы");

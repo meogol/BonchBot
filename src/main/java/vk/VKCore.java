@@ -75,6 +75,7 @@ public class VKCore {
         MessagesGetLongPollHistoryQuery eventsQuery = vk.messages()
                 .getLongPollHistory(actor)
                 .ts(ts);
+
         if (maxMsgId > 0){
             eventsQuery.maxMsgId(maxMsgId);
         }

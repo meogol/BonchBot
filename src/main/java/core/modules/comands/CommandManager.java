@@ -1,4 +1,4 @@
-package core;
+package core.modules.comands;
 
 
 import core.commands.*;

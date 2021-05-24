@@ -1,7 +1,7 @@
 package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
-import core.Command;
+import core.modules.comands.Command;
 import core.modules.data.GroupData;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;

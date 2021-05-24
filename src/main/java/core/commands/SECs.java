@@ -1,7 +1,7 @@
 package core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
-import core.Command;
+import core.modules.comands.Command;
 import core.modules.carousels.SECCarousel;
 import core.modules.keyboards.classicKeyboard.SECKeyboard;
 import vk.VKManager;

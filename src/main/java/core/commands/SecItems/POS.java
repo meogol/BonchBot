@@ -1,9 +1,8 @@
 package core.commands.SecItems;
 
 import com.vk.api.sdk.objects.messages.Message;
-import core.Command;
+import core.modules.comands.Command;
 import core.commands.ServiceCommand;
-import core.modules.carousels.SECCarousel;
 import core.modules.keyboards.inlineKeyboard.POSKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
