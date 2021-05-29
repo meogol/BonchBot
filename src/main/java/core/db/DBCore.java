@@ -62,6 +62,8 @@ public class DBCore <T> {
             e.printStackTrace();
         }
     }
+
+
     private <T> T serialize (ResultSet resultSet, Class <T> tClass) throws InstantiationException, IllegalAccessException, NoSuchFieldException, SQLException {
         T t = tClass.newInstance();
         for (var item: tClass.getFields()) {
@@ -91,5 +93,6 @@ public class DBCore <T> {
         }
 
     }
+
 
 }
