@@ -87,8 +87,6 @@ public class DBCore <T> {
         T t = tClass.newInstance();
         for (var item: tClass.getFields()) {
             tClass.getDeclaredField(item.getName()).set(t, resultSet.getObject(item.getName()));
-
-            int a = 0;
         }
 
         return t;
