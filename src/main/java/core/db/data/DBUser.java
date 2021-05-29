@@ -1,5 +1,8 @@
 package core.db.data;
 
+/**
+ * Data-class для хранения информации о пользователях и постах, на которые они подписаны
+ */
 public class DBUser {
 
     public Integer id, vk_user_id;
