@@ -61,10 +61,11 @@ public class Mailing {
                 users = db.dbRead("SELECT * FROM Users WHERE post_tag IN ('#примиучастие')", DBUser.class);
                 break;
             }
-            default: {
+            case "all" : {
                 users = db.dbRead("SELECT * FROM Users", DBUser.class);
                 break;
             }
+            default: break;
         }
         for (DBUser user : users){
             new VKManager().sendMessage(txt, user.getId());
