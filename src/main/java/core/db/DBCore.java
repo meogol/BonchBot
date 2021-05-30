@@ -70,6 +70,7 @@ public class DBCore <T> {
         }
     }
 
+
     /**
      * Метод используется для сериализации данных из БД и записи их в Data-class.
      *
@@ -114,5 +115,6 @@ public class DBCore <T> {
         }
 
     }
+
 
 }
