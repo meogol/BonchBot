@@ -18,8 +18,8 @@ public class AllNews extends Command implements ServiceCommand{
         DBCore db = new DBCore();
         DBUser user = new DBUser();
         user.setVk_user_id(message.getPeerId());
-        user.setPost_tag("all");
-        db.dbWrite("INSERT INTO Usres (vk_user_id, post_tag) VALUES (" + user.getVk_user_id() + ", '" + user.getPost_tag() +"')");
+        user.setPost_tag("#scienceдвиж #примиучастие");
+        db.dbWrite("INSERT INTO Users (vk_user_id, post_tag) VALUES (" + user.getVk_user_id() + ", '" + user.getPost_tag() +"')");
     }
 
     @Override

@@ -3,6 +3,7 @@ package core.modules.mailing;
 import core.db.DBCore;
 import core.db.data.DBUser;
 import org.apache.logging.log4j.core.jackson.ListOfMapEntryDeserializer;
+import vk.VKCore;
 import vk.VKManager;
 
 import java.lang.reflect.Array;
@@ -40,9 +41,12 @@ public class Mailing {
     public static void sendMail(String txt){
         DBCore db = new DBCore();
         ArrayList<DBUser> users = db.dbRead("SELECT * FROM Users", DBUser.class);
+        var committeeEvents = VKManager.getPosts("#scienceдвиж", 328500000l, 100);
+        var otherEvents = VKManager.getPosts("#примиучастие", 328500000l, 100);
 
         for (DBUser user : users){
-            new VKManager().sendMessage(txt, user.getId());
+
+            new VKManager().sendMessage(txt, user.getVk_user_id());
         }
     }
 
