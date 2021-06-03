@@ -3,9 +3,13 @@ package vk;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import core.modules.mailing.Mailing;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vk.callback.CallbackApiLongPollHandler;
 
+
 public class VKServer {
+    private static final Logger LOG = LoggerFactory.getLogger(VKServer.class);
 
     public static VKCore vkCore;
 
@@ -14,6 +18,7 @@ public class VKServer {
             vkCore = new VKCore();
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
         }
     }
 
@@ -39,6 +44,7 @@ public class VKServer {
                 final int RECONNECT_TIME = 10000;
                 System.out.println("Повторное соединение через " + RECONNECT_TIME / 1000 + " секунд");
                 Thread.sleep(RECONNECT_TIME);
+                LOG.info(e.getMessage());
 
             }
         }

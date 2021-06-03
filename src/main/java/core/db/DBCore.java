@@ -1,6 +1,9 @@
 package core.db;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vk.VKCore;
+import vk.VKManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class DBCore <T> {
+    private static final Logger LOG = LoggerFactory.getLogger(VKManager.class);
 
     static String url;
     static String username;
@@ -43,6 +47,8 @@ public class DBCore <T> {
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
+
         }
         return resultData;
     }

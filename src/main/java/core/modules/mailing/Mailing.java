@@ -13,6 +13,11 @@ import java.time.LocalDateTime;
 public class Mailing {
     private static boolean isMailing = false;
 
+    /**
+     * метод осуществляет рассылку в 19 00. Как только наступает время,
+     * меняется переменная isMailing, запрещая повторную расслку.
+     * По истечению часа она возвращается в исходное положение
+     */
     public static void execute(){
         while (true){
             var thisTime = LocalDateTime.now().toLocalTime().getHour();
@@ -21,20 +26,13 @@ public class Mailing {
             {
                 if(thisTime == 19){
                     isMailing = true;
-                    new VKManager().sendMessage("ну типо рассылка", 173079751);
-                    // TODO: 24.05.2021 тут должен быть код для отправки сообщений юзерам из бд
-
-                    // Ваня
-                    sendMail("Привет!", "#scienceдвиж");
                     sendMail("Привет всем!");
 
-                }else {
+                }else if (isMailing){
                     isMailing = false;
-
                 }
             }
 
-            thisTime=thisTime;
         }
 
     }
@@ -42,7 +40,6 @@ public class Mailing {
     public static void sendMail(String txt){
         DBCore db = new DBCore();
         ArrayList<DBUser> users = db.dbRead("SELECT * FROM Users", DBUser.class);
-        int count = users.size();
 
         for (DBUser user : users){
             new VKManager().sendMessage(txt, user.getId());
