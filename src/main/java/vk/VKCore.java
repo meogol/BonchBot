@@ -9,6 +9,7 @@ import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.queries.messages.MessagesGetLongPollHistoryQuery;
+import core.db.DBCore;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -46,11 +47,12 @@ public class VKCore {
             actor = new GroupActor(groupId, access_token);
             userActor = new UserActor(userId, user_access_token);
 
-            if (!vk.groups().getLongPollSettings(actor, actor.getGroupId()).execute().getIsEnabled()) {
-                vk.groups().setLongPollSettings(actor, actor.getGroupId()).enabled(true).wallPostNew(true).execute();
-            }
+//            if (!vk.groups().getLongPollSettings(actor, actor.getGroupId()).execute().getIsEnabled()) {
+//                vk.groups().setLongPollSettings(actor, actor.getGroupId()).enabled(true).wallPostNew(true).execute();
+//            }
 
             ts = vk.messages().getLongPollServer(actor).execute().getTs();
+            DBCore.readFromConfig();
 
         } catch (IOException e) {
             e.printStackTrace();
