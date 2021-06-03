@@ -13,6 +13,8 @@ import com.vk.api.sdk.queries.messages.MessagesSendQuery;
 import core.modules.carousels.SECCarousel;
 import core.modules.carousels.basic.BasicCarousel;
 import core.modules.data.GroupData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,6 +25,7 @@ import java.util.stream.Collectors;
 import static vk.VKServer.vkCore;
 
 public class VKManager {
+    private static final Logger LOG = LoggerFactory.getLogger(VKManager.class);
 
     public static VKCore vkCore;
     Random random = new Random();
@@ -45,6 +48,7 @@ public class VKManager {
                     .message(msg).execute();
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
         }
     }
 
@@ -67,6 +71,8 @@ public class VKManager {
 
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
+
         }
     }
 
@@ -80,6 +86,8 @@ public class VKManager {
 
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
+
         }
     }
 
@@ -93,6 +101,8 @@ public class VKManager {
                     .randomId(random.nextInt(10000)).execute();
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
+
         }
     }
 
@@ -115,6 +125,8 @@ public class VKManager {
                     .get(0);
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
+
         }
         return null;
     }
@@ -153,6 +165,8 @@ public class VKManager {
         }
         catch (ApiException | ClientException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
+
             return null;
         }
 
