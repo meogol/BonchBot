@@ -20,7 +20,7 @@ public class OurEvents extends Command implements ServiceCommand {
         DBUser user = new DBUser();
         user.setVk_user_id(message.getPeerId());
         user.setPost_tag("#scienceдвиж");
-        db.dbWrite("INSERT INTO Usres (vk_user_id, post_tag) VALUES (" + user.getVk_user_id() + ", '" + user.getPost_tag() +"')");
+        db.dbWrite("INSERT INTO Users (vk_user_id, post_tag) VALUES (" + user.getVk_user_id() + ", '" + user.getPost_tag() +"')");
     }
 
     @Override
