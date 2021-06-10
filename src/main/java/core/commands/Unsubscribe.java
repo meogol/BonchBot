@@ -18,7 +18,7 @@ public class Unsubscribe extends Command implements ServiceCommand  {
 
         DBCore db = new DBCore();
 
-        db.dbWrite("DELETE FROM tv_series WHERE id = " + message.getPeerId());
+        db.dbWrite("DELETE FROM Users WHERE vk_user_id = " + message.getPeerId());
     }
 
     @Override

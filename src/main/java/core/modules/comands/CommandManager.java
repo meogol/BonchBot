@@ -40,9 +40,10 @@ public class CommandManager {
         commands.add(new Settings("настройки"));
         commands.add(new Subscribe("управление подпиской"));
         commands.add(new AllNews("все новости!"));
-        commands.add(new OurEvents("наши меро!"));
-        commands.add(new OtherEvents("сторонние меро!"));
-        commands.add(new Unsubscribe("отписаться :c"));
+        commands.add(new SubOurs("наши меро!"));
+        commands.add(new SubOthers("сторонние меро!"));
+        commands.add(new UnsubOurs("наши меро :c"));
+        commands.add(new UnsubOthers("сторонние меро :c"));
     }
 
     public static HashSet<Command> getCommands(){

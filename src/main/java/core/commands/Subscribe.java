@@ -13,7 +13,11 @@ public class Subscribe extends Command implements ServiceCommand{
 
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
-        new VKManager().sendKeyboard(SubscribeKeyboard.getKeyboard(), "Выберите вид подписки", message.getPeerId());
+        if(!SubscribeKeyboard.userPresence(message.getPeerId())) {
+            new VKManager().sendKeyboard(SubscribeKeyboard.getKeyboard(), "Выберите вид подписки", message.getPeerId());
+        } else {
+            new VKManager().sendKeyboard(SubscribeKeyboard.getKeyboard(message.getPeerId()), "Выберите вид подписки", message.getPeerId());
+        }
     }
 
     @Override
