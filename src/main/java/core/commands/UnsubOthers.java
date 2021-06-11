@@ -24,6 +24,7 @@ public class UnsubOthers extends Command implements ServiceCommand{
         } else {
             db.dbWrite("UPDATE Users SET post_tag = '#scienseдвиж' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
         }
+        new VKManager().sendMessage("Вы отписались от рассылки на новости о сторонних мероприятиях :с", message.getPeerId());
     }
 
     @Override
