@@ -39,11 +39,19 @@ public class CommandManager {
         commands.add(new Advertising("8"));
         commands.add(new Settings("настройки"));
         commands.add(new Subscribe("управление подпиской"));
-        commands.add(new AllNews("все новости!"));
-        commands.add(new SubOurs("наши меро!"));
-        commands.add(new SubOthers("сторонние меро!"));
+        /**
+         * Изменение уже существующей подписки
+         */
+        commands.add(new SubOurs("наши меро :3"));
+        commands.add(new SubOthers("сторонние меро :3"));
         commands.add(new UnsubOurs("наши меро :c"));
         commands.add(new UnsubOthers("сторонние меро :c"));
+        /**
+         * Создание нового DB-юзера (первый раз чел нажал на подписку)
+         */
+        commands.add(new AllNews("все новости!"));
+        commands.add(new OurEvents("наши меро!"));
+        commands.add(new OtherEvents("сторонние меро!"));
     }
 
     public static HashSet<Command> getCommands(){

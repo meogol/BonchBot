@@ -61,13 +61,13 @@ public class SubscribeKeyboard {
         }
         if (dbUsers.get(0).getPost_tag() == "#примиучастие"){
 
-            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро!")
+            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
 
         }
         if (dbUsers.get(0).getPost_tag() == "#scienceдвиж") {
 
-            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cторонние меро!")
+            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cторонние меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
         }
         if (dbUsers.get(0).getPost_tag() == "#примиучастие"){

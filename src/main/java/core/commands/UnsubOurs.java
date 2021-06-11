@@ -20,7 +20,7 @@ public class UnsubOurs extends Command implements ServiceCommand{
         DBCore db = new DBCore();
         ArrayList<DBUser> dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()), DBUser.class);
         if(!dbUsers.get(0).getPost_tag().contains("#примиучастие")) {
-            db.dbWrite("UPDATE Users SET post_tag = '' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            db.dbWrite("UPDATE FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
         } else {
             db.dbWrite("UPDATE Users SET post_tag = '#примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
         }
