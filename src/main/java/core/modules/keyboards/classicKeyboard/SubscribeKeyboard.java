@@ -47,15 +47,15 @@ public class SubscribeKeyboard {
             line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро :с")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
         }
-        if (dbUsers.get(0).getPost_tag().contains("#примиучастие")){
+        if (!dbUsers.get(0).getPost_tag().contains("#scienceдвиж")){
 
             line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
 
         }
-        if (dbUsers.get(0).getPost_tag().contains("#scienceдвиж")) {
+        if (!dbUsers.get(0).getPost_tag().contains("#примиучастие")) {
 
-            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cтороние меро :3")
+            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cторонние меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
         }
         if (dbUsers.get(0).getPost_tag().contains("#примиучастие")){
@@ -67,7 +67,9 @@ public class SubscribeKeyboard {
          line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
-        allKey.add(line1);
+        if(!(dbUsers.get(0).getPost_tag().contains("#примиучастие") && dbUsers.get(0).getPost_tag().contains("#scienceдвиж"))) {
+            allKey.add(line1);
+        }
         allKey.add(line2);
         allKey.add(line3);
 

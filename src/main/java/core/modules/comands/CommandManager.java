@@ -45,7 +45,7 @@ public class CommandManager {
         commands.add(new SubOurs("наши меро :3"));
         commands.add(new SubOthers("сторонние меро :3"));
         commands.add(new UnsubOurs("наши меро :c"));
-        commands.add(new UnsubOthers("сторонние меро :c"));
+        commands.add(new UnsubOthers("сторонние меро :с"));
         /**
          * Создание нового DB-юзера (первый раз чел нажал на подписку)
          */

@@ -21,6 +21,7 @@ public class UnsubOthers extends Command implements ServiceCommand{
         ArrayList<DBUser> dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()), DBUser.class);
         if(!dbUsers.get(0).getPost_tag().contains("#scienseдвиж")) {
             db.dbWrite("DELETE FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            System.out.println("Отписался от всего");
         } else {
             db.dbWrite("UPDATE Users SET post_tag = '#scienseдвиж' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
         }
