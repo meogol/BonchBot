@@ -9,19 +9,13 @@ import java.util.List;
 
 public class SubscribeKeyboard {
 
-    private static Keyboard keyboard = new Keyboard();
-    private static List<List<KeyboardButton>> allKey = new ArrayList<>();
-    private static List<KeyboardButton> line1 = new ArrayList<>();
-    private static List<KeyboardButton> line2 = new ArrayList<>();
-    private static List<KeyboardButton> line3 = new ArrayList<>();
+    private Keyboard keyboard = new Keyboard();
+    private List<List<KeyboardButton>> allKey = new ArrayList<>();
+    private List<KeyboardButton> line1 = new ArrayList<>();
+    private List<KeyboardButton> line2 = new ArrayList<>();
+    private List<KeyboardButton> line3 = new ArrayList<>();
 
-    public static Keyboard getKeyboard() {
-
-        allKey.clear();
-        line1.clear();
-        line2.clear();
-        line3.clear();
-
+    public Keyboard getKeyboard() {
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Все новости!")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро!")
@@ -42,17 +36,11 @@ public class SubscribeKeyboard {
         return keyboard;
     }
 
-    public static Keyboard getKeyboard(int peerId) {
-
-        allKey.clear();
-        line1.clear();
-        line2.clear();
-        line3.clear();
-
+    public Keyboard getKeyboard(int peerId) {
 
         DBCore db = new DBCore();
 
-        ArrayList<DBUser> dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(peerId), DBUser.class);
+        ArrayList<DBUser> dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + peerId, DBUser.class);
 
         if (dbUsers.get(0).getPost_tag() == "#scienceдвиж"){
 
@@ -67,7 +55,7 @@ public class SubscribeKeyboard {
         }
         if (dbUsers.get(0).getPost_tag() == "#scienceдвиж") {
 
-            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cторонние меро :3")
+            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cтороние меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
         }
         if (dbUsers.get(0).getPost_tag() == "#примиучастие"){
@@ -98,7 +86,7 @@ public class SubscribeKeyboard {
 
         DBCore db = new DBCore();
 
-        var dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(peerId), DBUser.class);
+        var dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + peerId +";", DBUser.class);
 
         if(!dbUsers.isEmpty()){
             presence = true;
