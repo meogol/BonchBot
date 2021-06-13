@@ -73,6 +73,7 @@ public class DBCore <T> {
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
         }
     }
 
@@ -115,6 +116,7 @@ public class DBCore <T> {
 
         } catch (IOException e) {
             e.printStackTrace();
+            LOG.error(e.getMessage());
             System.out.println("Ошибка при загрузке файла конфигурации");
         }
 
