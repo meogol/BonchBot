@@ -12,6 +12,7 @@ public class CommandManager {
     private static HashSet<Command> commands = new HashSet<>();
 
     static {
+        commands.add(new StartBtn("Начать"));
         commands.add(new Unknown("unknown"));
         commands.add(new Members("\uD83D\uDE0Eучастники\uD83D\uDE0E"));
         commands.add(new Questions("❓вопросы❓"));
