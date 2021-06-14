@@ -88,7 +88,7 @@ public class SubscribeKeyboard {
 
         DBCore db = new DBCore();
 
-        var dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + peerId +";", DBUser.class);
+        var dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + peerId + ";", DBUser.class);
 
         if(!dbUsers.isEmpty()){
             presence = true;

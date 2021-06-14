@@ -18,12 +18,13 @@ public class UnsubOthers extends Command implements ServiceCommand{
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
         DBCore db = new DBCore();
-        ArrayList<DBUser> dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()), DBUser.class);
+        ArrayList<DBUser> dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";", DBUser.class);
         if(!dbUsers.get(0).getPost_tag().contains("#scienseдвиж")) {
-            db.dbWrite("DELETE FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
-            System.out.println("Отписался от всего");
+            db.dbWrite("DELETE FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+            System.out.println("Отписался от всего (сторонние)");
         } else {
-            db.dbWrite("UPDATE Users SET post_tag = '#scienseдвиж' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            db.dbWrite("UPDATE Users SET post_tag = '#scienseдвиж' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+            System.out.println("Отписался от сторонних");
         }
         new VKManager().sendMessage("Вы отписались от рассылки на новости о сторонних мероприятиях :с", message.getPeerId());
     }

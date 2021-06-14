@@ -18,13 +18,14 @@ public class UnsubOurs extends Command implements ServiceCommand{
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
         DBCore db = new DBCore();
-        ArrayList<DBUser> dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()), DBUser.class);
+        ArrayList<DBUser> dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";", DBUser.class);
         if(!dbUsers.get(0).getPost_tag().contains("#примиучастие")) {
-            db.dbWrite("DELETE FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            db.dbWrite("DELETE FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+            System.out.println("Отписался от всего (наши)");
         } else {
-            db.dbWrite("UPDATE Users SET post_tag = '#примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            db.dbWrite("UPDATE Users SET post_tag = '#примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+            System.out.println("Отписался от сторонних");
         }
-
         new VKManager().sendMessage("Вы отписались от рассылки на новости о наших мероприятиях :с", message.getPeerId());
     }
 

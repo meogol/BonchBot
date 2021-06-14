@@ -18,11 +18,13 @@ public class SubOthers extends Command implements ServiceCommand{
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
         DBCore db = new DBCore();
-        ArrayList<DBUser> dbUsers = db.dbRead("SELECT FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()), DBUser.class);
+        ArrayList<DBUser> dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";", DBUser.class);
         if(dbUsers.get(0).getPost_tag().isEmpty()) {
-            db.dbWrite("UPDATE Users SET post_tag = '#примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            db.dbWrite("UPDATE Users SET post_tag = '#примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+            System.out.println("Подписался на сторонние");
         } else {
-            db.dbWrite("UPDATE Users SET post_tag = '#scienseдвиж #примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
+            db.dbWrite("UPDATE Users SET post_tag = '#scienseдвиж #примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+            System.out.println("Подписался на сторонние");
         }
         new VKManager().sendMessage("Вы подписались на рассылку на новости о сторонних мероприятиях :3", message.getPeerId());
     }
