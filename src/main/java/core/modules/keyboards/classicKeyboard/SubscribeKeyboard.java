@@ -40,22 +40,23 @@ public class SubscribeKeyboard {
 
         DBCore db = new DBCore();
 
-        ArrayList<DBUser> dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + peerId, DBUser.class);
+        ArrayList<DBUser> dbUsers = db.dbRead("SELECT * FROM Users WHERE vk_user_id = " + peerId + ";", DBUser.class);
 
         if (dbUsers.get(0).getPost_tag().contains("#scienceдвиж")){
-            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро :с")
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро :с")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
-        }else {
+        }
+        if (!dbUsers.get(0).getPost_tag().contains("#scienceдвиж")){
             line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Наши меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
-
         }
-        if (dbUsers.get(0).getPost_tag().contains("#примиучастие")) {
-            line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Сторонние меро :с")
-                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
-        }else{
+        if (!dbUsers.get(0).getPost_tag().contains("#примиучастие")) {
             line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Cторонние меро :3")
                     .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
+        }
+        if (dbUsers.get(0).getPost_tag().contains("#примиучастие")){
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Сторонние меро :с")
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
         }
 
          line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
