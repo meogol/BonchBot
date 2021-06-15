@@ -12,6 +12,7 @@ public class CommandManager {
     private static HashSet<Command> commands = new HashSet<>();
 
     static {
+        commands.add(new StartBtn("Начать"));
         commands.add(new Unknown("unknown"));
         commands.add(new Members("\uD83D\uDE0Eучастники\uD83D\uDE0E"));
         commands.add(new Questions("❓вопросы❓"));
@@ -39,10 +40,19 @@ public class CommandManager {
         commands.add(new Advertising("8"));
         commands.add(new Settings("настройки"));
         commands.add(new Subscribe("управление подпиской"));
+        /**
+         * Изменение уже существующей подписки
+         */
+        commands.add(new SubOurs("наши меро :3"));
+        commands.add(new SubOthers("сторонние меро :3"));
+        commands.add(new UnsubOurs("наши меро :с"));
+        commands.add(new UnsubOthers("сторонние меро :с"));
+        /**
+         * Создание нового DB-юзера (первый раз чел нажал на подписку)
+         */
         commands.add(new AllNews("все новости!"));
         commands.add(new OurEvents("наши меро!"));
         commands.add(new OtherEvents("сторонние меро!"));
-        commands.add(new Unsubscribe("отписаться :c"));
     }
 
     public static HashSet<Command> getCommands(){
