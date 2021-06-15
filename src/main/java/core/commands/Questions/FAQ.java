@@ -1,11 +1,12 @@
-package core.commands;
+package core.commands.Questions;
 
 import com.vk.api.sdk.objects.messages.Message;
+import core.commands.Menu.ServiceCommand;
 import core.modules.comands.Command;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
 
-public class FAQ extends Command implements ServiceCommand{
+public class FAQ extends Command implements ServiceCommand {
 
     public FAQ(String name) {
         super(name);

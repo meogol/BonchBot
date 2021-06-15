@@ -1,4 +1,4 @@
-package core.commands;
+package core.commands.Menu;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.modules.comands.Command;

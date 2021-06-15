@@ -1,12 +1,13 @@
-package core.commands;
+package core.commands.Subscribe;
 
 import com.vk.api.sdk.objects.messages.Message;
+import core.commands.Menu.ServiceCommand;
 import core.modules.comands.Command;
 import core.modules.keyboards.classicKeyboard.SubscribeKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
 
-public class Subscribe extends Command implements ServiceCommand{
+public class Subscribe extends Command implements ServiceCommand {
     public Subscribe(String name) {
         super(name);
     }

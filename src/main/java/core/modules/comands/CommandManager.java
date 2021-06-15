@@ -1,9 +1,13 @@
 package core.modules.comands;
 
 
-import core.commands.*;
-import core.commands.Error;
+import core.commands.Events.*;
+import core.commands.Menu.*;
+import core.commands.Questions.*;
+import core.commands.Questions.Error;
+import core.commands.Menu.SECs;
 import core.commands.SecItems.*;
+import core.commands.Subscribe.*;
 
 import java.util.HashSet;
 

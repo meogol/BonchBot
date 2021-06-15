@@ -1,4 +1,4 @@
-package core.commands;
+package core.commands.Menu;
 
 
 public interface ServiceCommand {
