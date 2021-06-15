@@ -1,9 +1,9 @@
-package core.commands;
+package core.commands.Subscribe;
 import com.vk.api.sdk.objects.messages.Message;
+import core.commands.Menu.ServiceCommand;
 import core.db.DBCore;
 import core.db.data.DBUser;
 import core.modules.comands.Command;
-import core.modules.keyboards.classicKeyboard.EventsKeyboard;
 import core.modules.keyboards.classicKeyboard.SubscribeKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * для пользователя, уже занесённого в БД.
  */
 
-public class UnsubOurs extends Command implements ServiceCommand{
+public class UnsubOurs extends Command implements ServiceCommand {
     public UnsubOurs(String name) {
         super(name);
     }
