@@ -1,9 +1,13 @@
 package core.modules.comands;
 
 
-import core.commands.*;
-import core.commands.Error;
+import core.commands.Events.*;
+import core.commands.Menu.*;
+import core.commands.Questions.*;
+import core.commands.Questions.Error;
+import core.commands.Menu.SECs;
 import core.commands.SecItems.*;
+import core.commands.Subscribe.*;
 
 import java.util.HashSet;
 
@@ -12,7 +16,7 @@ public class CommandManager {
     private static HashSet<Command> commands = new HashSet<>();
 
     static {
-        commands.add(new StartBtn("Начать"));
+        commands.add(new StartBtn("начать"));
         commands.add(new Unknown("unknown"));
         commands.add(new Members("\uD83D\uDE0Eучастники\uD83D\uDE0E"));
         commands.add(new Questions("❓вопросы❓"));

@@ -1,7 +1,7 @@
 package core.modules.comands;
 
 import com.vk.api.sdk.objects.messages.Message;
-import core.commands.Back;
+import core.commands.Menu.Back;
 
 import java.util.Collection;
 

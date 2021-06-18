@@ -1,8 +1,7 @@
-package core.commands;
+package core.commands.Menu;
 
 import com.vk.api.sdk.objects.messages.Message;
 import core.modules.comands.Command;
-import core.modules.data.GroupData;
 import core.modules.keyboards.classicKeyboard.MainKeyboard;
 import vk.VKManager;
 import vk.callback.data.ClientInfo;
