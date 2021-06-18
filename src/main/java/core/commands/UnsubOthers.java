@@ -28,7 +28,11 @@ public class UnsubOthers extends Command implements ServiceCommand{
             userStatus(dbUsers,1);
             new VKManager().sendKeyboard(new SubscribeKeyboard().getKeyboard(), "Вы отписались от рассылки на новости о сторонних мероприятиях :с", message.getPeerId());
         } else {
+<<<<<<< HEAD
             db.dbWrite("UPDATE Users SET post_tag = '" + dbUsers.get(0).getPost_tag().replace(" #примиучастие", "") + "' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+=======
+            db.dbWrite("UPDATE Users SET post_tag = '#scienceдвиж' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+>>>>>>> onepantsu
             userStatus(dbUsers,2);
             new VKManager().sendKeyboard(new SubscribeKeyboard().getKeyboard(message.getPeerId()), "Вы отписались от рассылки на новости о сторонних мероприятиях :с", message.getPeerId());
         }
