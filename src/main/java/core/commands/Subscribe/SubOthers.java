@@ -30,11 +30,7 @@ public class SubOthers extends Command implements ServiceCommand {
             userStatus(dbUsers);
             new VKManager().sendKeyboard(new SubscribeKeyboard().getKeyboard(message.getPeerId()), "Спасибо за подписку!\nВсе новости будут приходить в 19:00!", message.getPeerId());
         } else {
-<<<<<<< HEAD
             db.dbWrite("UPDATE Users SET post_tag = '" + dbUsers.get(0).getPost_tag() + " #примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
-=======
-            db.dbWrite("UPDATE Users SET post_tag = '#scienceдвиж #примиучастие' WHERE vk_user_id = " + Integer.toString(message.getPeerId()));
->>>>>>> onepantsu
             userStatus(dbUsers);
             new VKManager().sendKeyboard(new SubscribeKeyboard().getKeyboard(message.getPeerId()), "Спасибо за подписку!\nВсе новости будут приходить в 19:00!", message.getPeerId());
         }
