@@ -69,7 +69,7 @@ public class Mailing {
             default: break;
         }
         for (DBUser user : users){
-            new VKManager().sendMessage(txt, user.getId());
+            new VKManager().sendMessage(txt, user.getVk_user_id());
         }
     }
 

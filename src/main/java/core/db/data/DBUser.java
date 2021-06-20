@@ -5,17 +5,9 @@ package core.db.data;
  */
 public class DBUser {
 
-    public Integer id, vk_user_id;
+    public Integer  vk_user_id;
     public String post_tag;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getVk_user_id() {
         return vk_user_id;
@@ -36,8 +28,7 @@ public class DBUser {
     @Override
     public String toString() {
         return "DBUser{" +
-                "id=" + id +
-                ", vk_user_id=" + vk_user_id +
+                " vk_user_id=" + vk_user_id +
                 ", post_tag='" + post_tag + '\'' +
                 '}';
     }
