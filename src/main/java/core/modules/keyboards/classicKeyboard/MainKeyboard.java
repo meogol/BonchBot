@@ -9,6 +9,8 @@ import java.util.List;
 public class MainKeyboard {
     private static Keyboard keyboard = new Keyboard();
     private static List<List<KeyboardButton>> allKey = new ArrayList<>();
+
+    private static List<KeyboardButton> line0 = new ArrayList<>();
     private static List<KeyboardButton> line1 = new ArrayList<>();
     private static List<KeyboardButton> line2 = new ArrayList<>();
     private static List<KeyboardButton> line3 = new ArrayList<>();
@@ -18,6 +20,10 @@ public class MainKeyboard {
     }
 
     static{
+
+        line0.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83C\uDF89ИГРАТЬ!")
+                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
+
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83C\uDF89Мероприятия")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83D\uDCB0Стажировки\uD83D\uDCB0")
@@ -33,6 +39,7 @@ public class MainKeyboard {
         line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Настройки")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
+        allKey.add(line0);
         allKey.add(line1);
         allKey.add(line2);
         allKey.add(line3);
