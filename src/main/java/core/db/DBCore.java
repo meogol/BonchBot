@@ -18,7 +18,7 @@ public class DBCore <T> {
     static String username;
     static String password;
 
-    private ArrayList resultData = new ArrayList();
+    private ArrayList resultData;
 
     /**
      * Метод обращается к БД и возвращает результат чтения
@@ -27,6 +27,7 @@ public class DBCore <T> {
      * @return
      */
     public ArrayList dbRead(String s, Class <T> tClass){
+        resultData = new ArrayList();
 
         try{
             Class.forName("com.mysql.jdbc.Driver");

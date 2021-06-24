@@ -2,6 +2,7 @@ package core.modules.comands;
 
 
 import core.commands.Events.*;
+import core.commands.Game.Answer;
 import core.commands.Game.RightAnswer;
 import core.commands.Game.StartGame;
 import core.commands.Game.WrongAnswer;
@@ -75,12 +76,15 @@ public class CommandManager {
         ArrayList<DBQuestion> dbQuestion = db.dbRead("SELECT * FROM Game;", DBQuestion.class);
 
         for(int i = 0; i < dbQuestion.size(); i++){
-            commands.add(new RightAnswer(dbQuestion.get(i).getAnswer()));
             String list_answers[] = dbQuestion.get(i).getListAnswers();
 
             for(int j = 0; j < list_answers.length; j++){
-                if(dbQuestion.get(i).getAnswer() != list_answers[j])
-                commands.add(new WrongAnswer(list_answers[j]));
+                var answer = new Answer(list_answers[j]);
+
+                if(i == dbQuestion.size() - 1 && j == list_answers.length -1)
+                    answer.setEndGame(true);
+
+                commands.add(answer);
             }
 
         }

@@ -3,6 +3,7 @@ package core.commands.Subscribe;
 import com.vk.api.sdk.objects.messages.Message;
 import core.commands.Menu.ServiceCommand;
 import core.db.DBManager;
+import core.db.data.DBUser;
 import core.modules.comands.Command;
 import core.modules.keyboards.classicKeyboard.SubscribeKeyboard;
 import vk.VKManager;
@@ -15,7 +16,7 @@ public class Subscribe extends Command implements ServiceCommand {
 
     @Override
     public void exec(Message message, ClientInfo clientInfo) {
-        if(!DBManager.userPresence(message.getPeerId())) {
+        if(!DBManager.userPresence(message.getPeerId(), "Users", DBUser.class)) {
             new VKManager().sendKeyboard(new SubscribeKeyboard().getKeyboard(), "Выберите вид подписки", message.getPeerId());
         } else {
             new VKManager().sendKeyboard(new SubscribeKeyboard().getKeyboard(message.getPeerId()), "Выберите вид подписки", message.getPeerId());

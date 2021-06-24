@@ -38,7 +38,7 @@ public class RightAnswer extends Command implements ServiceCommand {
         db.dbWrite("UPDATE Users_Game SET score = '" + dbUsersGame.get(0).getScore() +
                 "' WHERE vk_user_id = " + message.getPeerId() + ";");
 
-        db.dbWrite("UPDATE Users_Game SET question = '" + dbUsersGame.get(0).getQuestion() +
+        db.dbWrite("UPDATE Users_Game SET question_number = '" + dbUsersGame.get(0).getQuestion() +
                 "' WHERE vk_user_id = " + message.getPeerId() + ";");
 
         if (dbUsersGame.get(0).getQuestion() <= questions.size()){
