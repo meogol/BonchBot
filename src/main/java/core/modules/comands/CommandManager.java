@@ -75,11 +75,14 @@ public class CommandManager {
         ArrayList<DBQuestion> dbQuestion = db.dbRead("SELECT * FROM Game;", DBQuestion.class);
 
         for(int i = 0; i < dbQuestion.size(); i++){
-            commands.add(new RightAnswer(dbQuestion.get(i).answer));
-            for(int j = 0; j < 4; j++){
-                if(dbQuestion.get(i).answer != dbQuestion.get(i).list_answers[j])
-                commands.add(new WrongAnswer(dbQuestion.get(i).list_answers[j]));
+            commands.add(new RightAnswer(dbQuestion.get(i).getAnswer()));
+            String list_answers[] = dbQuestion.get(i).getListAnswers();
+
+            for(int j = 0; j < list_answers.length; j++){
+                if(dbQuestion.get(i).getAnswer() != list_answers[j])
+                commands.add(new WrongAnswer(list_answers[j]));
             }
+
         }
 
         /**

@@ -21,26 +21,51 @@ public class GameKeyboard {
 
         DBCore db = new DBCore();
 
-        ArrayList<DBUsersGame> dbUsersGame = db.dbRead("SELECT * FROM Users_Game WHERE vk_user_id = " + peerId, DBUsersGame.class);
+        DBCore db1 = new DBCore();
 
-        ArrayList<DBQuestion> question = db.dbRead("SELECT * FROM Game WHERE question_number = " + dbUsersGame.get(0).getQuestion(), DBQuestion.class);
+        ArrayList<DBUsersGame> dbUsersGame = db.dbRead("SELECT * FROM Users_Game WHERE vk_user_id = "
+                                                                + peerId, DBUsersGame.class);
 
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(question.get(0).getBtn1())
+        ArrayList<DBQuestion> dbQuestion = db1.dbRead("SELECT * FROM Game", DBQuestion.class);
+
+        String list_answers[] = dbQuestion.get(dbUsersGame.get(0).getQuestion()).getListAnswers();
+
+        int listSize = list_answers.length;
+
+
+
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(list_answers[0])
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
-        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(question.get(0).getBtn2())
+        line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(list_answers[1])
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
 
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(question.get(0).getBtn3())
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(question.get(0).getBtn4())
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
+        if (listSize == 2){
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
+        }
+        else if (listSize == 3) {
 
-        line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
-                .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(list_answers[2])
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
+
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
+        }
+        else if (listSize == 4){
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(list_answers[2])
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
+            line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel(list_answers[3])
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.DEFAULT));
+
+            line3.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("Назад")
+                    .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
+        }
 
         allKey.add(line1);
         allKey.add(line2);
-        allKey.add(line3);
+        if(listSize == 4){
+            allKey.add(line3);
+        }
         keyboard.setButtons(allKey);
 
         return keyboard;

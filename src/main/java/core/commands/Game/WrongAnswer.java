@@ -27,22 +27,28 @@ public class WrongAnswer extends Command implements ServiceCommand {
         DBCore db = new DBCore();
 
         ArrayList <DBUsersGame> dbUsersGame = db.dbRead("SELECT * FROM Users_Game WHERE vk_user_id = "
-                + Integer.toString(message.getPeerId()) + ";", DBUsersGame.class);
+                + message.getPeerId() + ";", DBUsersGame.class);
 
-        ArrayList<DBQuestion> questions = db.dbRead("SELECT * FROM Game", DBQuestion.class);
+        DBCore db0 = new DBCore();
+        ArrayList<DBQuestion> questions = db0.dbRead("SELECT * FROM Game", DBQuestion.class);
 
         dbUsersGame.get(0).setQuestion(dbUsersGame.get(0).getQuestion() + 1);
 
         db.dbWrite("UPDATE Users_Game SET question = '" + dbUsersGame.get(0).getQuestion() +
-                "' WHERE vk_user_id = " + Integer.toString(message.getPeerId()) + ";");
+                "' WHERE vk_user_id = " + message.getPeerId() + ";");
 
         if (dbUsersGame.get(0).getQuestion() <= questions.size()){
+
+            DBCore db1 = new DBCore();
+            ArrayList<DBUsersGame> dbUser = db.dbRead("SELECT * FROM Users_Game WHERE vk_user_id = " + message.getPeerId() + ";", DBUsersGame.class);
+            DBCore db2 = new DBCore();
+            ArrayList<DBQuestion> dbQuestion = db2.dbRead("SELECT * FROM Game", DBQuestion.class);
             new VKManager().sendKeyboard(new GameKeyboard().getKeyboard(message.getPeerId()), "Баллы: " +
-                    dbUsersGame.get(0).getScore() + "/" + (dbUsersGame.get(0).getQuestion() - 1), message.getPeerId());
+                    dbUsersGame.get(0).getScore() + "/" + (dbUsersGame.get(0).getQuestion()) + "\n" + dbQuestion.get(dbUser.get(0).getQuestion()).getQuestion(), message.getPeerId());
         }
         else {
             new VKManager().sendKeyboard(new MainKeyboard().getKeyboard(), "Поздравляем! Вы завершили игру!\nВаш результат: " +
-                    dbUsersGame.get(0).getScore() + "/" + (dbUsersGame.get(0).getQuestion() - 1), message.getPeerId());
+                    dbUsersGame.get(0).getScore() + "/" + (dbUsersGame.get(0).getQuestion()), message.getPeerId());
         }
 
     }

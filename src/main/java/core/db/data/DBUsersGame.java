@@ -5,7 +5,7 @@ package core.db.data;
  */
 public class DBUsersGame {
 
-    public Integer  vk_user_id, score, question;
+    public Integer  vk_user_id, score, question_number;
 
 
     public Integer getVk_user_id() {
@@ -25,16 +25,16 @@ public class DBUsersGame {
     }
 
     public Integer getQuestion() {
-        return question;
+        return question_number;
     }
 
-    public void setQuestion(Integer question) {
-        this.question = question;
+    public void setQuestion(Integer question_number) {
+        this.question_number = question_number;
     }
 
     public DBUsersGame(){
         vk_user_id = null;
-        score = question = 0;
+        score = question_number = 0;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class DBUsersGame {
         return "DBUser{" +
                 " vk_user_id=" + vk_user_id +
                 ", score='" + score +
-                ", question='" + question +'\'' +
+                ", question='" + question_number +'\'' +
                 '}';
     }
 }

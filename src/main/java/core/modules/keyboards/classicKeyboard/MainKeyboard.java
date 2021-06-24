@@ -21,7 +21,7 @@ public class MainKeyboard {
 
     static{
 
-        line0.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83C\uDF89ИГРАТЬ!")
+        line0.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("ИГРАТЬ!")
                 .setType(TemplateActionTypeNames.TEXT)).setColor(KeyboardButtonColor.PRIMARY));
 
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("\uD83C\uDF89Мероприятия")
