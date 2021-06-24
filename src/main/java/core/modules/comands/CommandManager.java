@@ -2,13 +2,19 @@ package core.modules.comands;
 
 
 import core.commands.Events.*;
+import core.commands.Game.RightAnswer;
+import core.commands.Game.StartGame;
+import core.commands.Game.WrongAnswer;
 import core.commands.Menu.*;
 import core.commands.Questions.*;
 import core.commands.Questions.Error;
 import core.commands.Menu.SECs;
 import core.commands.SecItems.*;
 import core.commands.Subscribe.*;
+import core.db.DBCore;
+import core.db.data.DBQuestion;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 
@@ -44,6 +50,7 @@ public class CommandManager {
         commands.add(new Advertising("8"));
         commands.add(new Settings("настройки"));
         commands.add(new Subscribe("управление подпиской"));
+
         /**
          * Изменение уже существующей подписки
          */
@@ -51,12 +58,37 @@ public class CommandManager {
         commands.add(new SubOthers("сторонние меро :3"));
         commands.add(new UnsubOurs("наши меро :с"));
         commands.add(new UnsubOthers("сторонние меро :с"));
+
         /**
          * Создание нового DB-юзера (первый раз чел нажал на подписку)
          */
         commands.add(new AllNews("все новости!"));
         commands.add(new OurEvents("наши меро!"));
         commands.add(new OtherEvents("сторонние меро!"));
+
+        /**
+         * Game
+         */
+        commands.add(new StartGame("играть!"));
+
+        DBCore db = new DBCore();
+        ArrayList<DBQuestion> dbQuestion = db.dbRead("SELECT * FROM Game;", DBQuestion.class);
+
+        for(int i = 0; i < dbQuestion.size(); i++){
+            commands.add(new RightAnswer(dbQuestion.get(i).getAnswer()));
+            String list_answers[] = dbQuestion.get(i).getListAnswers();
+
+            for(int j = 0; j < list_answers.length; j++){
+                if(dbQuestion.get(i).getAnswer() != list_answers[j])
+                commands.add(new WrongAnswer(list_answers[j]));
+            }
+
+        }
+
+        /**
+         *
+         */
+
     }
 
     public static HashSet<Command> getCommands(){
