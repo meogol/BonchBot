@@ -38,7 +38,7 @@ public class DBManager {
                 + peerId, DBUsersGame.class);
 
         return (DBQuestion) db.dbRead(
-                "SELECT * FROM Game where id = "+dbUsersGame.get(0).score, DBQuestion.class).get(0);
+                "SELECT * FROM Game where id = " + dbUsersGame.get(0).getQuestion(), DBQuestion.class).get(0);
     }
 
 }

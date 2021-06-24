@@ -74,15 +74,13 @@ public class CommandManager {
 
         DBCore db = new DBCore();
         ArrayList<DBQuestion> dbQuestion = db.dbRead("SELECT * FROM Game;", DBQuestion.class);
+        int qCount = db.dbRead("SELECT * FROM Game", DBQuestion.class).size();
 
         for(int i = 0; i < dbQuestion.size(); i++){
             String list_answers[] = dbQuestion.get(i).getListAnswers();
 
             for(int j = 0; j < list_answers.length; j++){
                 var answer = new Answer(list_answers[j]);
-
-                if(i == dbQuestion.size() - 1 && j == list_answers.length -1)
-                    answer.setEndGame(true);
 
                 commands.add(answer);
             }

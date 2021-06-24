@@ -34,7 +34,8 @@ public class DBUsersGame {
 
     public DBUsersGame(){
         vk_user_id = null;
-        score = question_number = 1;
+        score = 0;
+        question_number = 1;
     }
 
     @Override
